@@ -1,1 +1,9 @@
+title: Lumen
+description: An alternative BEAM implementation, designed for WebAssembly
 theme: jekyll-theme-minimal
+logo: logo.png
+github:
+  repository_url: https://github.com/lumen/lumen
+  repository_nwo: lumen/lumen
+  owner_url: https://github.com/lumen
+  owner_name: The Lumen Team

@@ -1,4 +1,4 @@
-# Welcome to the Lumen project
+# Welcome
 
 More information and documentation will be made available as the project reaches end-user maturity.
 
