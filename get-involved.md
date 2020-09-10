@@ -1,5 +1,9 @@
 # Follow along or get involved
 
+## Participating
+
+The best way to get in touch is by joining the channel #lumen on [the Elixir Lang Slack](https://elixir-slackin.herokuapp.com/). The ongoing work is discussed there and questions and answers can be had.
+
 ## News
 
 The news end up on the front page of this site but can also be accessed via RSS with [this link](/feed.xml).
