@@ -242,7 +242,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  github-pages!
+  github-pages
+  jekyll-feed
 
 BUNDLED WITH
    2.1.4

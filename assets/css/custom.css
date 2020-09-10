@@ -18,3 +18,27 @@
   height: 100%;
 }
 
+a:hover {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.news-item {
+  margin-bottom: 16px;
+}
+
+.read-more {
+  display: block;
+  text-align: right;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+nav a {
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
