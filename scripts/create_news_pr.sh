@@ -2,37 +2,43 @@
 
 set -e
 
-week_start_date=$(date -v-20d "+%Y-%m-%d")
+last_post_date=$(ls _posts | grep "\-weekly\-update\.md"|sort|head -c 10)
 date=$(date "+%Y-%m-%d")
-git_week_start_date=$(date -v-20d +"%m-%d-%y")
-git_week_end_date=$(date +"%m-%d-%y")
 filename="_posts/$date-weekly-update.md"
 
-echo "$week_start_date -> $date"
-
+echo -e "$last_post_date -> $date"
 
 repos=( "lumen/lumen" "eirproject/eir" "lumen/lumen_elixir" "lumen/examples" "lumen/llvm-project" "lumen/otp" "lumen/interpreter" "lumen/eir" "lumen/dmalloc-rs" "lumen/dashmap" "lumen/proc-macro2" "lumen/inkwell" "lumen/llvm-sys.rs" "lumen/wasmtime" "lumen/rfcs" "lumen/db_mon_demo" "lumen/threading-benchmarks")
 
 authors=( "Hans Elias B. Josephsen"  "Luke Imhoff" "Paul Schoenfelder" "bitwalker" )
 
 mkdir -p .tmp
-echo "{% comment %}" > "$filename"
+echo -e "---\nlayout: post\ntitle: Weekly update up to $date\n---\n\n" > "$filename"
+
+echo -e "{% comment %}Any editor's notes goes here.{% endcomment %}\n\n" >> "$filename"
+
+echo "{% comment %}" >> "$filename"
+echo -e "## Heading to group changes under\n" >> "$filename"
+echo -e "Short paragraph about what the change is supposed to achieve\n" >> "$filename"
+echo -e "- optional bulleted list of things done in this area for this period, if needed\n\n" >> "$filename"
+
+echo -e "Changes since last time according to git logs: \n\n" >> "$filename"
 for repo in "${repos[@]}"; do
   echo "Repo: $repo"
   path=".tmp/$repo"
   rm -fR "$path" || true
   gh_repo="https://github.com/$repo.git"
   echo "Cloning from github: $gh_repo"
-  git clone --shallow-since=$git_week_start_date "$gh_repo" "$path" && \
+  git clone --shallow-since=$last_post_date "$gh_repo" "$path" && \
   echo "Repo: $repo" >> "$filename" && \
   echo "" >> "$filename" && \
   for author in "${authors[@]}"; do
     git -C "$path" log \
-    --pretty="format:%h was %an, %ai, message: %s" \
-    --since=$git_week_start_date \
-    --until=$git_week_end_date \
-    --author="$author" \
-    >> "$filename"
+      --date=short \
+      --pretty="format:%h was %an, %ai, message: %s" \
+      --since=$last_post_date \
+      --author="$author" \
+      >> "$filename"
   done && \
   echo "" >> "$filename" && \
   echo "" >> "$filename" || \
