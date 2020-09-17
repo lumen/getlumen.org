@@ -53,5 +53,8 @@ git add "$filename"
 git commit -m "Create template for weekly update for $last_post_date - $date"
 git push origin "$branch"
 
-gh pr create --base "gh-pages" --reviewer "kronicdeath,bitwalker,hansihe,lawik" --title "Weekly update $date" --body "-"
+gh pr create --base "gh-pages" --reviewer "KronicDeth,bitwalker,hansihe,lawik" --title "Weekly update $date" --body "-"
+
+git checkout gh-pages
+git branch -D "$branch"
 
