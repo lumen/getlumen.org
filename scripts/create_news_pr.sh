@@ -17,14 +17,13 @@ echo -e "---\nlayout: post\ntitle: Weekly update up to $date\n---\n\n" > "$filen
 
 echo -e "{% comment %}Any editor's notes goes here.{% endcomment %}\n\n" >> "$filename"
 
-echo "{% comment %}" >> "$filename"
 echo -e "## Heading to group changes under\n" >> "$filename"
 echo -e "Short paragraph about what the change is supposed to achieve\n" >> "$filename"
 echo -e "- optional bulleted list of things done in this area for this period, if needed\n\n" >> "$filename"
 
 echo -e "Changes since last time according to git logs: \n\n" >> "$filename"
 for repo in "${repos[@]}"; do
-  echo "Repo: $repo"
+  echo "### Repo: $repo"
   path=".tmp/$repo"
   rm -fR "$path" || true
   gh_repo="https://github.com/$repo.git"
@@ -33,12 +32,25 @@ for repo in "${repos[@]}"; do
   echo "Repo: $repo" >> "$filename" && \
   echo "" >> "$filename" && \
   for author in "${authors[@]}"; do
-    git -C "$path" log \
+    logs=$(git -C "$path" log \
       --date=short \
-      --pretty="format:%h was %an, %ai, message: %s" \
+      --pretty="format:%h;%an;%ai;%s" \
       --since=$last_post_date \
-      --author="$author" \
-      >> "$filename"
+      --author="$author")
+    echo "$logs" | while read log; do
+      if [ ${#log} -ge 3 ]; then
+        # echo "Log: $log" && \
+        IFS=';' read -r -a array <<< "$log"
+
+        hash="${array[0]}"
+        person="${array[1]}"
+        timestamp="${array[2]}"
+        message="${array[3]}"
+        echo "Hash: $hash"
+        echo "" >> "$filename" && \
+        echo "- [$hash](https://github.com/$repo/commit/$hash) by $person, $timestamp: $message" >> "$filename"
+      fi
+    done
   done && \
   echo "" >> "$filename" && \
   echo "" >> "$filename" || \
