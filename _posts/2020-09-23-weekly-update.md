@@ -11,7 +11,16 @@ title: Weekly update up to 2020-09-23
 
 Short paragraph about what the change is supposed to achieve
 
-- optional bulleted list of things done in this area for this period, if needed
+## `lumen compile` quality-of-life changes
+- Requires less setup before use: the parent directories of `--output-dir` and `--output` are created automatically.
+- Accepts multiple input files and directories instead of just one, make it easier to compile multiple applications together.
+
+## `liblumen_alloc` memory allocation
+- Processes will allocate `HeapFragment` instead of returning `Alloc` error.  This protects BIFs from having to deal with re-entrancy and makes the process not panic because of Out-of-memory until codegen GC is integrated.
+
+## `liblumen_otp` testing
+  - More unit tests in Rust have been converted to integration tests in Erlang being compiled by `lumen`.
+  - Testing compile all of `erlang/otp` has begun.  Any issues related to those tests are tags [`erlang/otp`](https://github.com/lumen/lumen/issues?q=is%3Aissue+is%3Aopen+label%3Aerlang%2Fotp).
 
 
 Changes since last time according to git logs: 
