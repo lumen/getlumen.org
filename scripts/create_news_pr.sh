@@ -15,7 +15,7 @@ authors=( "Hans Elias B. Josephsen"  "Luke Imhoff" "Paul Schoenfelder" "bitwalke
 mkdir -p .tmp
 echo -e "---\nlayout: post\ntitle: Weekly update up to $date\n---\n\n" > "$filename"
 
-echo -e "{% comment %}Any editor's notes goes here.{% endcomment %}\n\n" >> "$filename"
+echo -e "Any editor's notes goes here.\n\n" >> "$filename"
 
 echo -e "## Heading to group changes under\n" >> "$filename"
 echo -e "Short paragraph about what the change is supposed to achieve\n" >> "$filename"
@@ -57,7 +57,6 @@ for repo in "${repos[@]}"; do
   echo "Clone failed for $gh_repo, probably no updates."
 
 done
-echo "{% endcomment %}" >> "$filename"
 
 branch="weekly-update-$date"
 git checkout -b "$branch"
