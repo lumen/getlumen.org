@@ -21,6 +21,13 @@ Short paragraph about what the change is supposed to achieve
 ## `liblumen_otp` testing
   - More unit tests in Rust have been converted to integration tests in Erlang being compiled by `lumen`.
   - Testing compile all of `erlang/otp` has begun.  Any issues related to those tests are tags [`erlang/otp`](https://github.com/lumen/lumen/issues?q=is%3Aissue+is%3Aopen+label%3Aerlang%2Fotp).
+  
+## `eir` fixes to erlang frontend
+Luke's testing of the compiler on OTP has revealed several issues with the erlang frontend. Some choice examples of things that have been fixed:
+  - Fix scoping rules when assignments are done in case expressions.
+  - Add support for several module attributes.
+  - The `include_lib` directive should check regular include path as well as codepath. Fix semantics and improve error reporting.
+  - In cases where binaries are constructed from strings with specifiers, things were handled wrong (things like `<<"abcæøå"/utf8>>` would generate latin1 instead of utf8, codepoints above the basic multilingual plane would get truncated). Both fix these issues and improve error reporting.
 
 
 Changes since last time according to git logs: 
