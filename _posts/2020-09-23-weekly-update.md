@@ -1,40 +1,36 @@
 ---
 layout: post
-title: Weekly update up to 2020-09-23
+title: The first regular update
 ---
 
-
-{% comment %}Any editor's notes goes here.{% endcomment %}
-
-
-## Heading to group changes under
-
-Short paragraph about what the change is supposed to achieve
+As Lumen has had its first release we aim to keep everyone following the project posted on what's new. This is a summary and some detail on what has happened since the Lumen release. We are likely to make a new release within a week or so, it will depend on when some changes land but that's the idea. Until then we hope you enjoy following along.
 
 ## `lumen compile` quality-of-life changes
+
 - Requires less setup before use: the parent directories of `--output-dir` and `--output` are created automatically.
 - Accepts multiple input files and directories instead of just one, make it easier to compile multiple applications together.
 
 ## `liblumen_alloc` memory allocation
-- Processes will allocate `HeapFragment` instead of returning `Alloc` error.  This protects BIFs from having to deal with re-entrancy and makes the process not panic because of Out-of-memory until codegen GC is integrated.
+
+- Processes will allocate `HeapFragment` instead of returning `Alloc` error. This protects BIFs from having to deal with re-entrancy and makes the process not panic because of Out-of-memory until codegen GC is integrated.
 
 ## `liblumen_otp` testing
-  - More unit tests in Rust have been converted to integration tests in Erlang being compiled by `lumen`.
-  - Testing compile all of `erlang/otp` has begun.  Any issues related to those tests are tags [`erlang/otp`](https://github.com/lumen/lumen/issues?q=is%3Aissue+is%3Aopen+label%3Aerlang%2Fotp).
-  
+
+- More unit tests in Rust have been converted to integration tests in Erlang being compiled by `lumen`.
+- Testing compilation on all of `erlang/otp` has begun. Any issues related to those tests are tags [`erlang/otp`](https://github.com/lumen/lumen/issues?q=is%3Aissue+is%3Aopen+label%3Aerlang%2Fotp).
+
 ## `eir` fixes to erlang frontend
+
 Luke's testing of the compiler on OTP has revealed several issues with the erlang frontend. Some choice examples of things that have been fixed:
+
   - Fix scoping rules when assignments are done in case expressions.
   - Add support for several module attributes.
   - The `include_lib` directive should check regular include path as well as codepath. Fix semantics and improve error reporting.
-  - In cases where binaries are constructed from strings with specifiers, things were handled wrong (things like `<<"abcæøå"/utf8>>` would generate latin1 instead of utf8, codepoints above the basic multilingual plane would get truncated). Both fix these issues and improve error reporting.
+  - In cases where binaries are constructed from strings with specifiers, things were handled wrong (things like `<<"abcæøå"/utf8>>` would generate latin1 instead of utf8, codepoints above the basic multilingual plane would get truncated). Both fixed these issues and improve error reporting.
 
+## Commits
 
-Changes since last time according to git logs: 
-
-
-Repo: lumen/lumen
-
+### Repo: lumen/lumen
 
 - [e55c4d0](https://github.com/lumen/lumen/commit/e55c4d0) by Luke Imhoff, 2020-09-22 22:33:01 -0500: Integration tests for erlang:bnot/1
 
@@ -92,9 +88,7 @@ Repo: lumen/lumen
 
 - [bfdbdc1](https://github.com/lumen/lumen/commit/bfdbdc1) by Luke Imhoff, 2020-09-03 11:47:02 -0500: Allocate a fragment if allocating on process fails in builtin_malloc
 
-
-Repo: eirproject/eir
-
+### Repo: eirproject/eir
 
 - [5b624a6](https://github.com/eirproject/eir/commit/5b624a6) by Hans Elias B. Josephsen, 2020-09-22 13:14:37 +0200: Support named inline types in map and tuple types
 
@@ -120,17 +114,9 @@ Repo: eirproject/eir
 
 - [8bf4edd](https://github.com/eirproject/eir/commit/8bf4edd) by Hans Elias B. Josephsen, 2020-09-15 18:00:36 +0200: Improve diagnostics on includes
 
-
-Repo: lumen/examples
-
+### Repo: lumen/examples
 
 - [22d93c2](https://github.com/lumen/examples/commit/22d93c2) by Luke Imhoff, 2020-09-03 11:51:24 -0500: spawn-chain/cli demo
 
 - [ea97e0d](https://github.com/lumen/examples/commit/ea97e0d) by Luke Imhoff, 2020-09-02 20:43:56 -0500: spawn-chain -> spawn-chain/wasm
 
-
-Repo: lumen/wasmtime
-
-
-
-{% endcomment %}
