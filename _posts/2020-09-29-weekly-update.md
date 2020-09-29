@@ -13,6 +13,31 @@ Short paragraph about what the change is supposed to achieve
 
 - optional bulleted list of things done in this area for this period, if needed
 
+## Binary handling
+
+* Changes to compiler codegen, `liblumen_alloc`, and runtime built-ins to support fixes for `/utf8` binaries in EIR.
+
+## Runtime built-ins
+
+* Built-in bitwise operators that did not have `badarith` handling now defer to the `liblumen_otp` version that do.
+  * `bnot/1`
+  * `bor/2`
+  * `bsl/2`
+  * `bsr/2`
+
+## `liblumen_otp` testing
+
+* `erlang/otp` testing is improved by running Autoconf and `configure` before testing, so that more derived `.hrl` files can be used.
+  * `inet_dns_record_adts.hrl` is made for `lib/kernel` testing
+* More `liblumen_otp` Rust unit tests are converted to Erlang integration tests
+  * `erlang`
+    * Bitwise operators
+      * `bnot/1`
+      * `bor/2`
+      * `bsl/2`
+      * `bsr/2`
+      * `bxor/2`
+    * `cancel_timer/1`
 
 Changes since last time according to git logs: 
 
