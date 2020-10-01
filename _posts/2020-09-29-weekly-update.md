@@ -14,7 +14,7 @@ Short paragraph about what the change is supposed to achieve
 - optional bulleted list of things done in this area for this period, if needed
 
 ## Binary handling
-
+* Changes to `libeir_syntax_erl`, binary handling was totally busted before, this changeset hopefully gets it more correct. Primarily changes the handling of the `<<"">>` syntax feature, and how binary specifiers are applied to it.
 * Changes to compiler codegen, `liblumen_alloc`, and runtime built-ins to support fixes for `/utf8` binaries in EIR.
 
 ## Runtime built-ins
@@ -38,6 +38,9 @@ Short paragraph about what the change is supposed to achieve
       * `bsr/2`
       * `bxor/2`
     * `cancel_timer/1`
+    
+## `libeir_syntax_erl` code span handling with macros
+Previously, macro usage caused incorrect source spans to be inserted into the token stream. This causes an assertion to fail. This issue has been fixed for simple macros.
 
 Changes since last time according to git logs: 
 
