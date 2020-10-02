@@ -21,7 +21,7 @@ echo -e "## Heading to group changes under\n" >> "$filename"
 echo -e "Short paragraph about what the change is supposed to achieve\n" >> "$filename"
 echo -e "- optional bulleted list of things done in this area for this period, if needed\n\n" >> "$filename"
 
-echo -e "Changes since last time according to git logs: \n\n" >> "$filename"
+echo -e "## Commits \n\n" >> "$filename"
 for repo in "${repos[@]}"; do
   echo "### Repo: $repo"
   path=".tmp/$repo"
