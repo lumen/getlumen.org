@@ -1,13 +1,44 @@
+header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header img {
+  flex-grow: 1;
+  max-width: 32px;
+  width: 32px;
+  max-height: 32px;
+  height: 32px;
+  float: left;
+}
+
+header h1 {
+  flex-grow: 1;
+  padding-left: 8px;
+}
+
+header h1 a,
+header h1 a:link,
+header h1 a:visited,
+header h1 a:active {
+  text-decoration: none;
+  font-weight: normal;
+  color: #727272;
+}
+
+header p {
+}
+
 .video-container {
   overflow: hidden;
   position: relative;
-  width:100%;
+  width: 100%;
 }
 
 .video-container::after {
   padding-top: 56.25%;
   display: block;
-  content: '';
+  content: "";
 }
 
 .video-container iframe {
@@ -41,4 +72,11 @@ nav {
 nav a {
   flex-grow: 1;
   margin-bottom: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
 }
