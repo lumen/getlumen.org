@@ -2,7 +2,7 @@
 
 set -e
 
-last_post_date=$(ls _posts | grep "\-weekly\-update\.md"|sort|head -c 10)
+last_post_date=$(ls _posts | grep "\-weekly\-update\.md"|sort -r|head -c 10)
 date=$(date "+%Y-%m-%d")
 filename="_posts/$date-weekly-update.md"
 
