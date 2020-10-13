@@ -13,8 +13,74 @@ Short paragraph about what the change is supposed to achieve
 
 - optional bulleted list of things done in this area for this period, if needed
 
+## EIR
 
-## Commits 
+* Fix named lambdas and refactor escape character handling
+* Rework typespec parsing
+* Evaluate record indexing as constants in evaluator
+* Fix binary construction with string literals
+* Fall back to literal on unknown escape character
+* Parsing warning toggle flags properly
+
+## Compiler codegen
+
+* Implement `Callee::GlobalDynamic`.  This is all calls of the form `M:F(A1, A2, ...)` where `M` is variable module and
+  `F` is a variable function, but the arity is fixed.  It is lowered to an `apply/3` call.
+* EIR groups repeated logic operations (`and` and `or`) with the same operator like `A and B and C` into a single
+  logical operation, but the codegen previously thought they were binary operations only, so now handle the EIR
+  operations having a variable number of operands, but still lower them to binary operations in MLIR.
+
+## Runtime built-ins
+
+* Built-ins math operators that did not have `badarith` handling now defer to the `liblumen_otp` version that do.
+  * `//2`
+  * `div/2`
+* Stub out NIF-related functions, so NIF module in OTP can link
+  * `load_nif/2`
+  * `nif_error/1`
+
+## `liblumen_otp` testing
+
+* Rust unit tests converted to Erlang integration tests
+  * Exceptions
+    * `error/1`
+    * `error/2`
+    * `exit/1`
+  * Functions
+    * `function_exported/3`
+  * Guards
+    * `is_binary/1`
+    * `is_boolean/1`
+    * `is_float/1`
+    * `is_integer/1`
+    * `is_list/1`
+    * `is_map/1`
+    * `is_number/1`
+    * `is_pid/1`
+    * `is_process_alive/1`
+  * Lists
+    * `++/2`
+    * `hd/1`
+    * `tl/1`
+  * Monitors
+    * `demonitor/1`
+    * `demonitor/2`
+  * Numbers
+    * `//2`
+    * `ceil/1`
+    * `div/2`
+    * `float/1`
+    * `floor/1`
+  * Time
+    * `convert_time_unit/3`
+  * Timers
+    * `cancel_timer/2`
+  * Tuples
+    * `delete_element/3`
+    * `element/2`
+    * `insert_element/3`
+
+## Commits
 
 
 Repo: lumen/lumen
