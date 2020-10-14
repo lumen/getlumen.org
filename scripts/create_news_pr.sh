@@ -29,7 +29,7 @@ for repo in "${repos[@]}"; do
   gh_repo="https://github.com/$repo.git"
   echo "Cloning from github: $gh_repo"
   git clone --shallow-since=$last_post_date "$gh_repo" "$path" && \
-  echo "Repo: $repo" >> "$filename" && \
+  echo "### Repo: $repo" >> "$filename" && \
   echo "" >> "$filename" && \
   for author in "${authors[@]}"; do
     logs=$(git -C "$path" log \
