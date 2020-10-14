@@ -1,90 +1,80 @@
 ---
 layout: post
-title: Weekly update up to 2020-10-13
+title: Update up to 2020-10-13
 ---
 
-
-Any editor's notes goes here.
-
-
-## Heading to group changes under
-
-Short paragraph about what the change is supposed to achieve
-
-- optional bulleted list of things done in this area for this period, if needed
+The latest updates for the last two weeks of work.
 
 ## EIR
 
-* Fix named lambdas and refactor escape character handling
-* Rework typespec parsing
-* Evaluate record indexing as constants in evaluator
-* Fix binary construction with string literals
-* Fall back to literal on unknown escape character
-* Parsing warning toggle flags properly
+- Fix named lambdas and refactor escape character handling
+- Rework typespec parsing
+- Evaluate record indexing as constants in evaluator
+- Fix binary construction with string literals
+- Fall back to literal on unknown escape character
+- Parsing warning toggle flags properly
 
 ## Compiler codegen
 
-* Implement `Callee::GlobalDynamic`.  This is all calls of the form `M:F(A1, A2, ...)` where `M` is variable module and
-  `F` is a variable function, but the arity is fixed.  It is lowered to an `apply/3` call.
-* EIR groups repeated logic operations (`and` and `or`) with the same operator like `A and B and C` into a single
+- Implement `Callee::GlobalDynamic`. This is all calls of the form `M:F(A1, A2, ...)` where `M` is variable module and
+  `F` is a variable function, but the arity is fixed. It is lowered to an `apply/3` call.
+- EIR groups repeated logic operations (`and` and `or`) with the same operator like `A and B and C` into a single
   logical operation, but the codegen previously thought they were binary operations only, so now handle the EIR
   operations having a variable number of operands, but still lower them to binary operations in MLIR.
 
 ## Runtime built-ins
 
-* Built-ins math operators that did not have `badarith` handling now defer to the `liblumen_otp` version that do.
-  * `//2`
-  * `div/2`
-* Stub out NIF-related functions, so NIF module in OTP can link
-  * `load_nif/2`
-  * `nif_error/1`
+- Built-ins math operators that did not have `badarith` handling now defer to the `liblumen_otp` version that do.
+  - `//2`
+  - `div/2`
+- Stub out NIF-related functions, so NIF module in OTP can link
+  - `load_nif/2`
+  - `nif_error/1`
 
 ## `liblumen_otp` testing
 
-* Rust unit tests converted to Erlang integration tests
-  * Exceptions
-    * `error/1`
-    * `error/2`
-    * `exit/1`
-  * Functions
-    * `function_exported/3`
-  * Guards
-    * `is_binary/1`
-    * `is_boolean/1`
-    * `is_float/1`
-    * `is_integer/1`
-    * `is_list/1`
-    * `is_map/1`
-    * `is_number/1`
-    * `is_pid/1`
-    * `is_process_alive/1`
-  * Lists
-    * `++/2`
-    * `hd/1`
-    * `tl/1`
-  * Monitors
-    * `demonitor/1`
-    * `demonitor/2`
-  * Numbers
-    * `//2`
-    * `ceil/1`
-    * `div/2`
-    * `float/1`
-    * `floor/1`
-  * Time
-    * `convert_time_unit/3`
-  * Timers
-    * `cancel_timer/2`
-  * Tuples
-    * `delete_element/3`
-    * `element/2`
-    * `insert_element/3`
+- Rust unit tests converted to Erlang integration tests
+  - Exceptions
+    - `error/1`
+    - `error/2`
+    - `exit/1`
+  - Functions
+    - `function_exported/3`
+  - Guards
+    - `is_binary/1`
+    - `is_boolean/1`
+    - `is_float/1`
+    - `is_integer/1`
+    - `is_list/1`
+    - `is_map/1`
+    - `is_number/1`
+    - `is_pid/1`
+    - `is_process_alive/1`
+  - Lists
+    - `++/2`
+    - `hd/1`
+    - `tl/1`
+  - Monitors
+    - `demonitor/1`
+    - `demonitor/2`
+  - Numbers
+    - `//2`
+    - `ceil/1`
+    - `div/2`
+    - `float/1`
+    - `floor/1`
+  - Time
+    - `convert_time_unit/3`
+  - Timers
+    - `cancel_timer/2`
+  - Tuples
+    - `delete_element/3`
+    - `element/2`
+    - `insert_element/3`
 
 ## Commits
 
-
-Repo: lumen/lumen
-
+### Repo: lumen/lumen
 
 - [bd07cc7](https://github.com/lumen/lumen/commit/bd07cc7) by Luke Imhoff, 2020-10-08 20:50:28 -0500: Fix typo in builtin symbolName
 
@@ -148,11 +138,11 @@ Repo: lumen/lumen
 
 - [4905bed](https://github.com/lumen/lumen/commit/4905bed) by Luke Imhoff, 2020-09-30 13:27:55 -0500: Integration tests for //2
 
-- [f91be44](https://github.com/lumen/lumen/commit/f91be44) by Luke Imhoff, 2020-09-30 13:08:51 -0500: Use liblumen_otp erlang://2 for __lumen_builtin_math.fdiv
+- [f91be44](https://github.com/lumen/lumen/commit/f91be44) by Luke Imhoff, 2020-09-30 13:08:51 -0500: Use liblumen_otp erlang://2 for \_\_lumen_builtin_math.fdiv
 
 - [89d0f2f](https://github.com/lumen/lumen/commit/89d0f2f) by Luke Imhoff, 2020-09-30 10:38:42 -0500: Integration tests for div/2
 
-- [f861ea9](https://github.com/lumen/lumen/commit/f861ea9) by Luke Imhoff, 2020-09-30 10:38:23 -0500: Use liblumen_otp erlang:div/2 for __lumen_builtin_math.div
+- [f861ea9](https://github.com/lumen/lumen/commit/f861ea9) by Luke Imhoff, 2020-09-30 10:38:23 -0500: Use liblumen_otp erlang:div/2 for \_\_lumen_builtin_math.div
 
 - [d5ddec9](https://github.com/lumen/lumen/commit/d5ddec9) by Luke Imhoff, 2020-09-29 18:59:50 -0500: Integration tests for demonitor/2 including badarg and flush option
 
@@ -168,9 +158,7 @@ Repo: lumen/lumen
 
 - [d914f21](https://github.com/lumen/lumen/commit/d914f21) by Luke Imhoff, 2020-09-29 09:33:37 -0500: Integration tests for erlang:cancel_timer/2
 
-
-Repo: eirproject/eir
-
+### Repo: eirproject/eir
 
 - [2a89b9c](https://github.com/eirproject/eir/commit/2a89b9c) by Hans Elias B. Josephsen, 2020-10-06 08:58:26 +0200: Parse warning toggle flags propely
 
@@ -181,9 +169,3 @@ Repo: eirproject/eir
 - [8bcf7a7](https://github.com/eirproject/eir/commit/8bcf7a7) by Hans Elias B. Josephsen, 2020-10-05 12:37:10 +0200: Fix compilation of `erlang.erl`
 
 - [ef2c1c9](https://github.com/eirproject/eir/commit/ef2c1c9) by Hans Elias B. Josephsen, 2020-10-02 13:35:51 +0200: Fix named lambdas and refactor escape character handling
-
-
-Repo: lumen/wasmtime
-
-
-
