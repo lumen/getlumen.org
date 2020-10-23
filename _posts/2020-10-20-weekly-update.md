@@ -13,6 +13,14 @@ Short paragraph about what the change is supposed to achieve
 
 - optional bulleted list of things done in this area for this period, if needed
 
+## `liblumen_otp` BIFs
+* Add stubs for BIFs needed for linking `seq_trace.erl` in OTP.  The stubs often emulate the non-sequential-trace state or only do argument validation with actual argument operations left `unimplemented!()`.  Support for sequential tracing Lumen will be based on user demand.
+  * `module_loaded/1`
+  * `seq_trace/2`
+  * `seq_trace_info/1`
+  * `seq_trace_print/2`
+  * `system_flag/2`
+  * `system_info/1
 
 ## Commits 
 
