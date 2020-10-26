@@ -3,24 +3,18 @@ layout: post
 title: Weekly update up to 2020-10-20
 ---
 
-
-Any editor's notes goes here.
-
-
-## Heading to group changes under
-
-Short paragraph about what the change is supposed to achieve
-
-- optional bulleted list of things done in this area for this period, if needed
+A brief update this week.
 
 ## `liblumen_otp` BIFs
-* Add stubs for BIFs needed for linking `seq_trace.erl` in OTP.  The stubs often emulate the non-sequential-trace state or only do argument validation with actual argument operations left `unimplemented!()`.  Support for sequential tracing Lumen will be based on user demand.
+
+Add stubs for BIFs needed for linking `seq_trace.erl` in OTP.  The stubs often emulate the non-sequential-trace state or only do argument validation with actual argument operations left `unimplemented!()`.  Support for sequential tracing in Lumen will be based on user demand.
+
   * `module_loaded/1`
   * `seq_trace/2`
   * `seq_trace_info/1`
   * `seq_trace_print/2`
   * `system_flag/2`
-  * `system_info/1
+  * `system_info/1`
 
 ## Commits 
 
@@ -45,9 +39,3 @@ Short paragraph about what the change is supposed to achieve
 - [f156890](https://github.com/lumen/lumen/commit/f156890) by Luke Imhoff, 2020-10-14 10:02:56 -0400: test: add tests for globally dynamic calls
 
 - [1dc18c4](https://github.com/lumen/lumen/commit/1dc18c4) by Paul Schoenfelder, 2020-10-14 10:01:24 -0400: Revert "Implement Callee::GlobalDynamic"
-
-
-### Repo: lumen/wasmtime
-
-
-
