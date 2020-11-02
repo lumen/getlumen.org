@@ -4,14 +4,27 @@ title: Weekly update up to 2020-10-28
 ---
 
 
-Any editor's notes goes here.
+This week the compiler saw a significant number of fixes and improvements, and the
+build system was consolidated under `cargo make` in an effort to make it easier to use, 
+more consistent, and rely less on platform-specific functionality.
 
 
-## Heading to group changes under
+## Compiler
 
-Short paragraph about what the change is supposed to achieve
+- The codgen backend was significantly refactored in order to be stricter about type information,
+  which in turn is used to address a number of miscompilations or compiler panics due to incorrect
+  lowerings.
+- Fixes for several outstanding compiler bugs, primarily those which produced diagnostics from MLIR
+  about mismatched types.
+- Fixed bugs in the handling of dynamic apply, which resulted in incorrect runtime behavior in some
+  cases, especially nested closures.
+- Updated LLVM/MLIR
 
-- optional bulleted list of things done in this area for this period, if needed
+## Build
+
+- Switched from a combination of `make` and `sh` scripts to `cargo make`
+- Most of the logic that was previously in `bin/build-lumen` is now in `scripts/lumen.rs`
+- Lumen now builds successfully on Linux in CI
 
 
 ## Commits 
