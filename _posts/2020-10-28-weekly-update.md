@@ -175,8 +175,3 @@ more consistent, and rely less on platform-specific functionality.
 
 - [f4f50dc](https://github.com/lumen/examples/commit/f4f50dc) by Paul Schoenfelder, 2020-10-24 13:38:52 -0400: fix: missing unwind feature attribute
 
-
-### Repo: lumen/wasmtime
-
-
-
