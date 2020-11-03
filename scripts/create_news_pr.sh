@@ -28,7 +28,8 @@ for repo in "${repos[@]}"; do
   rm -fR "$path" || true
   gh_repo="https://github.com/$repo.git"
   echo "Cloning from github: $gh_repo"
-  git clone --shallow-since=$last_post_date "$gh_repo" "$path" && \
+  echo "git clone --shallow-since="${last_post_date}T23:59:59Z" \"$gh_repo\" \"$path\""
+  git clone --shallow-since="${last_post_date}T23:59:59Z" "$gh_repo" "$path" && \
   echo "### Repo: $repo" >> "$filename" && \
   echo "" >> "$filename" && \
   for author in "${authors[@]}"; do
