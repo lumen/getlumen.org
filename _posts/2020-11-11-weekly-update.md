@@ -19,8 +19,3 @@ Not much changed in terms of code pushed to GitHub this week, other than updatin
 ### Repo: lumen/llvm-project
 
 Commits are omitted here, since the only commits made by us were rebased on top of the latest LLVM master, and are not new.
-
-### Repo: lumen/wasmtime
-
-
-
