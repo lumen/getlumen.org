@@ -19,6 +19,9 @@ Short paragraph about what the change is supposed to achieve
 
 ### Repo: eirproject/eir
 
+There is loads of work in progress, but only thing pushed up this week is an update to latest nighly. This includes an update of all our forked dependencies to support the latest version of the `AllocRef` trait.
+
+This change will enable us to update the Lumen master repo to nightly as well.
 
 - [9a037bf](https://github.com/eirproject/eir/commit/9a037bf) by Hans Elias B. Josephsen, 2020-12-04 14:45:27 +0100: Update to latest nightly
 
