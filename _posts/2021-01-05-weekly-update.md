@@ -1,17 +1,9 @@
 ---
 layout: post
-title: Weekly update up to 2021-01-05
+title: Partial update up to 2021-01-05
 ---
 
-
-Any editor's notes goes here.
-
-
-## Heading to group changes under
-
-Short paragraph about what the change is supposed to achieve
-
-- optional bulleted list of things done in this area for this period, if needed
+This covers some of the work on the Lumen project. Returning from the holidays has us all a bit scattered. So while we haven't summarized all the work we'll put out what information we have for now.
 
 
 ## Commits 
@@ -19,7 +11,7 @@ Short paragraph about what the change is supposed to achieve
 
 ### Repo: eirproject/eir
 
-There is loads of work in progress, but only thing pushed up this week is an update to latest nighly. This includes an update of all our forked dependencies to support the latest version of the `AllocRef` trait.
+There is loads of work in progress, but only thing pushed up here is an update to latest nighly. This includes an update of all our forked dependencies to support the latest version of the `AllocRef` trait.
 
 This change will enable us to update the Lumen master repo to nightly as well.
 
@@ -58,9 +50,4 @@ This change will enable us to update the Lumen master repo to nightly as well.
 - [8faddef10](https://github.com/lumen/llvm-project/commit/8faddef10) by Paul Schoenfelder, 2019-12-18 12:06:03 -0500: [lumen] expose functions in MCSubtargetInfo for accessing features/cpus
 
 - [64aae6583](https://github.com/lumen/llvm-project/commit/64aae6583) by Paul Schoenfelder, 2019-11-25 01:17:20 -0500: [lumen] add build scripts for distribution
-
-
-### Repo: lumen/wasmtime
-
-
 
