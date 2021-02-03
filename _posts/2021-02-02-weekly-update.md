@@ -6,13 +6,17 @@ title: Weekly update up to 2021-02-02
 
 Any editor's notes goes here.
 
+## Implement binary comprehensions in `libeir_syntax_erl`
 
-## Heading to group changes under
+The EIR Erlang frontend has supported list comprehensions for some time, but binary comprehensions have remained unimplemented due to rare usage.
 
-Short paragraph about what the change is supposed to achieve
+Implementing this turned out to be more challenging than anticipated, due to patterns in binary comprehensions working in a fundamentally different way than any other patterns in the language. Binary comprehensions need to allow for "structural matches" on binaries, a pattern that matches on the length, but not on guards or constants.
 
-- optional bulleted list of things done in this area for this period, if needed
+## Fix source span errors in `eir`
 
+A bug around source span handling in EIR affected large parts of the standard library. (https://github.com/lumen/lumen/issues/597)
+
+This is fixed by falling back to a slightly less sophisticated handling of source spans when macros are used. This isn't expected to affect error messages negatively in any significant way.
 
 ## Commits 
 
