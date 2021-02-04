@@ -1,10 +1,9 @@
 ---
 layout: post
-title: Weekly update up to 2021-02-02
+title: Update up to 2021-02-02
 ---
 
-
-Any editor's notes goes here.
+Updates have been a little sparse here as most of the Lumen team is occupied elsewhere. This is a brief update on some of the changes since last time. Everyone has been a bit busy after the holidays and in the start of the year. While you wait for things to pick up and move again we recommend taking a listen to the podcast Elixir Wizards that recently featured Brian Cardarella where they touch on some of the Lumen stuff towards the end.
 
 ## Implement binary comprehensions in `libeir_syntax_erl`
 
@@ -41,9 +40,6 @@ This is fixed by falling back to a slightly less sophisticated handling of sourc
 - [39375b6](https://github.com/eirproject/eir/commit/39375b6) by Hans Elias B. Josephsen, 2021-01-05 10:34:02 +0100: Hopefully fix all source span errors.
 
 - [7843e65](https://github.com/eirproject/eir/commit/7843e65) by Luke Imhoff, 2021-01-30 19:28:32 -0600: Use Allocator and Global from std::alloc
-
-
-### Repo: lumen/wasmtime
 
 
 
