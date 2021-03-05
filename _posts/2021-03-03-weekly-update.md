@@ -7,12 +7,13 @@ title: Weekly update up to 2021-03-03
 Any editor's notes goes here.
 
 
-## Heading to group changes under
+## Rust Nightly
 
-Short paragraph about what the change is supposed to achieve
+The Lumen and EIR repos are updated to be able to use `rust` `nightly-2021-01-29`.  This update allows us to use the newer `Allocator` trait that replaces the older `AllocRef` trait for the `allocator-api` feature that is in active development for Rust and that we depend on for the memory management system.
 
-- optional bulleted list of things done in this area for this period, if needed
+## Firefox Returns to MacOS
 
+Firefox can be tested on macOS again for WASM after `wasm-bindgen` `0.2.68`.
 
 ## Commits 
 
