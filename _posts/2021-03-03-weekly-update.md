@@ -1,11 +1,9 @@
 ---
 layout: post
-title: Weekly update up to 2021-03-03
+title: Update up to 2021-03-03
 ---
 
-
-Any editor's notes goes here.
-
+Luke provides us with some context here for a lot of changes as we bring Lumen up a more recent Rust nightly.
 
 ## Rust Nightly
 
@@ -162,19 +160,11 @@ Firefox can be tested on macOS again for WASM after `wasm-bindgen` `0.2.68`.
 - [6f9c13b](https://github.com/lumen/lumen/commit/6f9c13b) by Luke Imhoff, 2021-01-10 21:17:16 -0600: Update liblumen_arena
 
 
-### Repo: eirproject/eir
-
-
-
 ### Repo: lumen/examples
 
 
 - [ae03d07](https://github.com/lumen/examples/commit/ae03d07) by Luke Imhoff, 2021-02-28 13:18:28 -0600: Update num-bigint to 0.3.1
 
 - [3447995](https://github.com/lumen/examples/commit/3447995) by Luke Imhoff, 2021-02-21 11:59:11 -0600: Update parking_lot to 0.11.1
-
-
-### Repo: lumen/wasmtime
-
 
 
